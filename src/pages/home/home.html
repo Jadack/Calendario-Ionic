@@ -12,6 +12,37 @@
 </ion-header>
 
 <ion-content>
+    <ion-header>
+
+        <ion-navbar>
+          <ion-title>Events Details</ion-title>
+        </ion-navbar>
+      
+      </ion-header>
+      
+      
+      <ion-content>
+        <ion-list>
+          <ion-item>
+            <ion-input type="text" placeholder="Title" [(ngModel)]="event.title"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Start</ion-label>
+            <ion-input displayFormat="MM//DD//YY HH:mm" pickerFormat="MM//DD//YY HH:mm" type="text" placeholder="Title" [(ngModel)]="event.startTime" [min]="minDate"></ion-input>
+          </ion-item>
+          <!-- <ion-item>
+            <ion-label>End</ion-label>
+            <ion-input displayFormat="MM//DD//YY HH:mm" pickerFormat="MM//DD//YY HH:mm" type="text" placeholder="Title" [(ngModel)]="event.endTime" [min]="minDate"></ion-input>
+          </ion-item> -->
+          <ion-item>
+            <ion-label>All Day?</ion-label>
+              <ion-checkbox [(ngModel)]="event.allDay"></ion-checkbox>
+          </ion-item>
+        </ion-list>
+        <button ion-button full icon-left (click)="save()">
+          <ion-icon name="checkmark"></ion-icon> Add Event
+        </button>
+      </ion-content>
   <calendar [eventSource]="eventSource"
   [calendarMode]="calendar.mode"
   [currentDate]="calendar.currentDate"
